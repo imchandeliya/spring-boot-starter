@@ -2,12 +2,15 @@ package com.example.springbootstarter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class SpringbootstarterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootstarterApplication.class, args);
+		ApplicationContext context = SpringApplication.run(SpringbootstarterApplication.class, args);
+		HelloWorldImpl helloWorldImpl = (HelloWorldImpl) context.getBean("helloWorldImpl");
+		helloWorldImpl.sayHello();
 	}
 
 }
