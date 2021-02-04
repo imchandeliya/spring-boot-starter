@@ -1,9 +1,10 @@
 package com.example.springbootstarter.services;
 
-public class HelloWorldSpanishImpl implements HelloWorldService{
+public class HelloWorldServiceHindiImpl implements HelloWorldService{
+
 
     @Override
     public String getGreeting() {
-        return "Hola mundo!";
+        return "Namaste Jahan!!";
     }
 }
