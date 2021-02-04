@@ -9,33 +9,38 @@ import org.springframework.context.annotation.Profile;
 public class HelloConfig {
 
     @Bean
+    public HelloWorldFactory helloWorldFactory() {
+        return new HelloWorldFactory();
+    }
+
+    @Bean
     @Profile({"default", "english"})
-    public HelloWorldService HelloWorldEnglish() {
-        return new HelloWorldServiceEnglishImpl();
+    public HelloWorldService HelloWorldEnglish(HelloWorldFactory helloWorldFactory) {
+        return helloWorldFactory.createHelloWorldService("en");
     }
 
     @Bean
     @Profile({"spanish"})
-    public HelloWorldService HelloWorldSpanish() {
-        return new HelloWorldServiceSpanishImpl();
+    public HelloWorldService HelloWorldSpanish(HelloWorldFactory helloWorldFactory) {
+        return helloWorldFactory.createHelloWorldService("es");
     }
 
     @Bean
     @Profile({"polish"})
-    public HelloWorldService HelloWorldPolish() {
-        return new HelloWorldServicePolishImpl();
+    public HelloWorldService HelloWorldPolish(HelloWorldFactory helloWorldFactory) {
+        return helloWorldFactory.createHelloWorldService("pl");
     }
 
     @Bean
     @Profile({"german"})
-    public HelloWorldService HelloWorldGerman() {
-        return new HelloWorldServiceGermanImpl();
+    public HelloWorldService HelloWorldGerman(HelloWorldFactory helloWorldFactory) {
+        return helloWorldFactory.createHelloWorldService("de");
     }
 
     @Bean
-    @Profile({"german"})
-    public HelloWorldService HelloWorldHindi() {
-        return new HelloWorldServiceHindiImpl();
+    @Profile({"hindi"})
+    public HelloWorldService HelloWorldHindi(HelloWorldFactory helloWorldFactory) {
+        return helloWorldFactory.createHelloWorldService("hi");
     }
 
 }
