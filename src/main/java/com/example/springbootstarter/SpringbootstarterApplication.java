@@ -9,7 +9,6 @@ public class SpringbootstarterApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SpringbootstarterApplication.class, args);
-		HelloWorldImpl helloWorldImpl = (HelloWorldImpl) context.getBean("helloWorldImpl");
 		InjectedByConstructorService injectedByConstructorService = (InjectedByConstructorService) context.getBean("injectedByConstructorService");
 		injectedByConstructorService.getMessage();
 	}
